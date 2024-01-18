@@ -53,3 +53,53 @@ void mostrarDatos(struct alumno* alumnos, int n)
         printf("\n");
     }
 }
+
+/*Se utiliza malloc para reservar memoria
+Se muestra un menú con 3 opciones utilizando printf 
+Se agrega el bucle dowhile
+Dependiendo de la opción seleccionada por el usuario, 
+se llama a la función correspondiente.*/
+
+int main()
+{
+    int opcion;
+    int n;
+    
+    printf("Ingrese el numero de alumnos: ");
+    scanf("%d", &n);
+    
+    struct alumno* alumnos = (struct alumno*)malloc(n * sizeof(struct alumno));
+    
+    do
+    {
+        printf("Menu:\n");
+        printf("1. Ingresar datos de los alumnos\n");
+        printf("2. Mostrar datos de los alumnos\n");
+        printf("3. Salir\n");
+        printf("Ingrese una opcion: ");
+        scanf("%d", &opcion);
+        
+        switch (opcion)
+        {
+            case 1:
+                ingresarDatos(alumnos, n);
+                break;
+            case 2:
+                mostrarDatos(alumnos, n);
+                break;
+            case 3:
+                printf("Saliendo del programa...\n");
+                break;
+            default:
+                printf("Opcion invalida\n");
+                break;
+        }
+        
+        printf("\n");
+    } while (opcion != 3);
+    
+    free(alumnos);
+    
+    return 0;
+}
+/*Fin del programa*/
