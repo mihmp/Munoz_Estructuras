@@ -38,3 +38,18 @@ void ingresarDatos(struct alumno* alumnos, int n)
         printf("\n");
     }
 }
+/*Llamo a mostar los datos en pantalla*/
+
+void mostrarDatos(struct alumno* alumnos, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        printf("Datos del alumno %d:\n", i + 1);
+        printf("Matricula: %d\n", alumnos[i].matricula);
+        printf("Nombre: %s\n", alumnos[i].nombre);
+        printf("Direccion: %s\n", alumnos[i].direccion);
+        printf("Carrera: %s\n", alumnos[i].carrera);
+        printf("Promedio: %.2f\n", alumnos[i].promedio);
+        printf("\n");
+    }
+}
